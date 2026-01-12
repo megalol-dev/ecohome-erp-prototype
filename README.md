@@ -63,7 +63,7 @@ Esto permite **probar la aplicación directamente** sin necesidad de crear usuar
 
 ## 📂 Estructura del proyecto
 
-´´´
+```
 
 /ecohome-erp-prototype
 │
@@ -74,7 +74,7 @@ Esto permite **probar la aplicación directamente** sin necesidad de crear usuar
 ├── db.php # Conexión a base de datos SQLite
 └── README.md
 
-´´´
+```
 
 ---
 
