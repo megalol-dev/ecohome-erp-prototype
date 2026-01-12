@@ -1,0 +1,127 @@
+
+// Aqui se muestran las consultas mas tipicas listas para usar en la base de datos SQLITE
+
+// La propia app web ya tiene implementado funciones de "listas", aunque muestran un numero determinado de logs en los registros,
+
+
+1️⃣ Listar facturas de empresa pendientes (ordenadas por fecha)
+SELECT 
+    f.id,
+    f.pedido_id,
+    f.creado_en,
+    f.total,
+    t.correo AS creada_por
+FROM facturas f
+JOIN trabajadores t ON t.id = f.trabajador_id
+WHERE f.estado = 'pendiente'
+ORDER BY f.creado_en DESC;
+
+
+2️⃣ Listar facturas de clientes pendientes
+SELECT 
+    fc.id,
+    fc.cliente_nombre,
+    fc.cliente_email,
+    fc.concepto,
+    fc.total,
+    fc.creado_en,
+    t.correo AS creada_por
+FROM facturas_clientes fc
+JOIN trabajadores t ON t.id = fc.trabajador_id
+WHERE fc.estado = 'pendiente'
+ORDER BY fc.creado_en DESC;
+
+
+3️⃣ Total de dinero pendiente (empresa vs clientes)
+SELECT 
+    'Empresa' AS tipo,
+    SUM(total) AS total_pendiente
+FROM facturas
+WHERE estado = 'pendiente'
+
+UNION ALL
+
+SELECT
+    'Clientes' AS tipo,
+    SUM(total) AS total_pendiente
+FROM facturas_clientes
+WHERE estado = 'pendiente';
+
+
+4️⃣ Historial de pedidos con su coste total
+SELECT 
+    p.id AS pedido_id,
+    p.creado_en,
+    p.total,
+    t.correo AS realizado_por
+FROM pedidos p
+JOIN trabajadores t ON t.id = p.trabajador_id
+ORDER BY p.creado_en DESC;
+
+
+5️⃣ Detalle completo de un pedido (líneas)
+SELECT 
+    m.nombre AS material,
+    i.cantidad,
+    i.precio_unitario,
+    i.subtotal
+FROM pedido_items i
+JOIN materiales m ON m.id = i.material_id
+WHERE i.pedido_id = 1;
+
+
+6️⃣ Stock actual de materiales (solo activos)
+SELECT 
+    nombre,
+    unidades,
+    precio_unitario
+FROM materiales
+WHERE activo = 1
+ORDER BY nombre;
+
+
+7️⃣ Historial de movimientos de stock (con usuario)
+SELECT 
+    sm.creado_en,
+    m.nombre AS material,
+    sm.tipo,
+    sm.cantidad,
+    t.correo AS usuario,
+    sm.nota
+FROM stock_movimientos sm
+JOIN materiales m ON m.id = sm.material_id
+JOIN trabajadores t ON t.id = sm.trabajador_id
+ORDER BY sm.creado_en DESC;
+
+
+8️⃣ Consumo total de material (salidas)
+SELECT 
+    m.nombre,
+    SUM(sm.cantidad) AS total_consumido
+FROM stock_movimientos sm
+JOIN materiales m ON m.id = sm.material_id
+WHERE sm.tipo = 'salida'
+GROUP BY m.id
+ORDER BY total_consumido DESC;
+
+
+9️⃣ Ranking de trabajadores por número de operaciones
+SELECT 
+    t.correo,
+    COUNT(sm.id) AS operaciones_realizadas
+FROM stock_movimientos sm
+JOIN trabajadores t ON t.id = sm.trabajador_id
+GROUP BY t.id
+ORDER BY operaciones_realizadas DESC;
+
+
+🔟 Facturas creadas por un trabajador concreto
+SELECT 
+    fc.id,
+    fc.cliente_nombre,
+    fc.total,
+    fc.estado,
+    fc.creado_en
+FROM facturas_clientes fc
+WHERE fc.trabajador_id = 1
+ORDER BY fc.creado_en DESC;

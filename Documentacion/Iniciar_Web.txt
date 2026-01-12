@@ -1,0 +1,14 @@
+// Desde visual estudio o cualquier IDE ->
+
+// Abre la consola con control + ñ
+
+// Inicia el servidor PHP con el comando, escribe en la consola esto y pulsa intro-> 
+
+    php -S localhost:8000
+
+// Pega la siguiente URL en tu nagevador
+
+    http://localhost:8000
+
+
+// Notas: se debe tener instalado php como servidor en tu IDE para que funcione.    
