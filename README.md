@@ -206,8 +206,6 @@ Documentación auxiliar del proyecto:
 
 ---
 
----
-
 ## 🚀 Escalabilidad futura
 
 El sistema está diseñado para crecer sin necesidad de rehacer la base:
