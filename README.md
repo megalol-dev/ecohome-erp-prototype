@@ -61,20 +61,150 @@ Esto permite **probar la aplicación directamente** sin necesidad de crear usuar
 
 ---
 
-## 📂 Estructura del proyecto
+# EcoHome ERP – Estructura del Proyecto (Refactorizado)
+
+Este proyecto es una aplicación web tipo **ERP** desarrollada en PHP, orientada a la gestión interna de una empresa ficticia llamada **EcoHome**.  
+Incluye módulos de usuarios, pedidos, stock, facturación e informes, con control de acceso por roles.
+
+Este README describe **exclusivamente la estructura del proyecto** tras la refactorización.
+
+---
+
+## 📁 Estructura de carpetas
+
+
 
 ```
 
-/ecohome-erp-prototype
+GESTORAPP/
 │
-├── documentacion/ # Documentación del proyecto y usuarios de prueba
-├── uploads/ # Archivos de facturas (imágenes)
-├── *.php # Lógica de la aplicación
-├── style.css # Estilos
-├── db.php # Conexión a base de datos SQLite
+├── app/
+│ ├── includes/
+│ └── pages/
+│ ├── usuarios/
+│ ├── pedidos/
+│ ├── stock/
+│ ├── facturas/
+│ └── informes/
+│
+├── public/
+│ └── assets/
+│ └── css/
+│
+├── storage/
+│ └── db/
+│
+├── uploads/
+│
+├── docs/
+│
+├── index.php
+├── login.php
+├── logout.php
+├── dashboard.php
+├── db.php
 └── README.md
 
 ```
+
+
+---
+
+## 📂 Descripción de carpetas y archivos
+
+### 🔹 `app/`
+Contiene **toda la lógica principal de la aplicación**, separada del punto de entrada público.
+
+#### `app/pages/`
+Agrupa las páginas por **módulos funcionales**, evitando archivos sueltos y facilitando el mantenimiento.
+
+- **usuarios/**
+  - Gestión de usuarios y empleados
+  - Crear, editar y borrar usuarios
+  - Control de roles (admin, RRHH, etc.)
+
+- **pedidos/**
+  - Creación y visualización de pedidos
+  - Detalle de pedidos y sus líneas
+
+- **stock/**
+  - Gestión de materiales
+  - Entradas, salidas y ajustes de stock
+  - Historial de movimientos
+
+- **facturas/**
+  - Facturación a clientes y a empresa
+  - Facturas pendientes y pagadas
+  - Visualización de imágenes de facturas
+
+- **informes/**
+  - Informes de facturación y stock
+  - Resúmenes y vistas agrupadas
+  - Acceso según rol
+
+#### `app/includes/`
+Reservado para **código reutilizable**, helpers o componentes comunes  
+(actualmente preparado para futuras ampliaciones).
+
+---
+
+### 🔹 `public/`
+Recursos públicos accesibles desde el navegador.
+
+- **assets/css/**
+  - Hojas de estilo globales de la aplicación
+
+---
+
+### 🔹 `storage/`
+Datos internos que **no deben ser públicos**.
+
+- **db/**
+  - Base de datos SQLite (`EcoHome.db`)
+
+---
+
+### 🔹 `uploads/`
+Almacena archivos subidos por los usuarios:
+
+- Imágenes de facturas de clientes
+- Archivos asociados a la gestión documental
+
+---
+
+### 🔹 `docs/`
+Documentación auxiliar del proyecto:
+
+- Notas internas
+- Consultas SQL
+- Apuntes de desarrollo
+
+---
+
+## 📄 Archivos principales en la raíz
+
+- **index.php**  
+  Punto de entrada de la aplicación. Redirige según estado de sesión.
+
+- **login.php / logout.php**  
+  Autenticación de usuarios y cierre de sesión.
+
+- **dashboard.php**  
+  Panel principal tras el login. Muestra accesos según rol.
+
+- **db.php**  
+  Configuración centralizada de la conexión a la base de datos.
+
+---
+
+## ✅ Notas finales
+
+- La estructura está pensada para **escalar**, mantener y depurar fácilmente.
+- La lógica se mantiene separada de los recursos públicos.
+- Todas las rutas y redirecciones fueron adaptadas tras la refactorización.
+- Proyecto refactorizado completamente desde una versión inicial no modular.
+
+---
 
 ---
 
