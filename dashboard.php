@@ -16,7 +16,7 @@ $rol  = $user['rol'] ?? '';
 <head>
     <meta charset="UTF-8">
     <title>Dashboard - EcoHome</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="public/assets/css/style.css">
 </head>
 <body>
 
@@ -37,23 +37,23 @@ $rol  = $user['rol'] ?? '';
 
             <!-- Logística: solo pedir material + stock -->
             <?php if (in_array($rol, ['admin', 'Logistica'], true)): ?>
-                <a href="pedidos.php" class="card">📦 Pedir material</a>
-                <a href="stock.php" class="card">🏷️ Gestionar Stock</a>
+                <a href="app/pages/pedidos/pedidos.php" class="card">📦 Pedir material</a>
+                <a href="app/pages/stock/stock.php" class="card">🏷️ Gestionar Stock</a>
             <?php endif; ?>
 
             <!-- Gestión: facturas + informes -->
             <?php if (in_array($rol, ['admin', 'Gestion'], true)): ?>
-                <a href="facturas.php" class="card">🧾 Gestionar facturas / pagos</a>
+                <a href="app/pages/facturas/facturas.php" class="card">🧾 Gestionar facturas / pagos</a>
             <?php endif; ?>
 
             <!-- Informes: admin + directivos + gestión -->
             <?php if (in_array($rol, ['admin', 'Directivos', 'Gestion'], true)): ?>
-                <a href="informes.php" class="card">📊 Ver Informes</a>
+                <a href="app/pages/informes/informes.php" class="card">📊 Ver Informes</a>
             <?php endif; ?>
 
             <!-- RRHH: solo usuarios -->
             <?php if (in_array($rol, ['admin', 'RRHH'], true)): ?>
-                <a href="usuarios.php" class="card admin">👤 Crear/ Ver Usuarios</a>
+                <a href="app/pages/usuarios/usuarios.php" class="card admin">👤 Crear/ Ver Usuarios</a>
             <?php endif; ?>
 
         </div>

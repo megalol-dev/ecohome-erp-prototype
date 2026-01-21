@@ -1,0 +1,61 @@
+
+// Contraseña para entrar (en la base datos estan haseadas)
+
+
+// Admin (derecho a todo) 
+Puede crear trabajadores
+Puede ir a todos sitios
+Puede hacer cualquier accion en la aplicacion 
+
+Correo: admin@ecohome.com
+Contraseña: admin123
+
+
+// Directivos
+Correo: martinez@gmail.com
+Contraseña: 44443333
+
+----------------------------------------------------
+
+// RHHH
+Pueden crear usuarios y entrar a todos los sitios, pero no pueden hacer nada
+
+Pepe@gamil.com
+12341234
+
+
+// Logistica
+Solo pueden entar a pedidos
+Mendoza@gmail.com
+11111111
+
+// Gestion
+Elena@gmail.com
+12344321
+
+
+// Usuarios para las pruebas 
+
+Correo: Indefinidio1@gmail.com
+Contraseña: indefinido1
+Rol: RRHH
+
+
+Correo: Indefinidio2@gmail.com
+Contraseña: indefinido2
+Rol: Directivos
+
+
+Correo: Indefinidio3@gmail.com
+Contraseña: indefinido3
+Rol: Logistica
+
+
+Correo: Indefinidio4@gmail.com
+Contraseña: indefinido4
+Rol: Logistica
+
+
+Correo: refactorAdmin@gmail.com
+Contraseña: 12345678
+Rol: admin

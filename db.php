@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 function getPDO(): PDO {
-    // Ruta correcta a TU base de datos
-    $dbPath = __DIR__ . '/EcoHome.db';
+    // Ruta para la base de datos
+    $dbPath = __DIR__ . '/storage/db/EcoHome.db';
 
     $pdo = new PDO('sqlite:' . $dbPath, null, null, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
