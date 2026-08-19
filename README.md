@@ -36,15 +36,17 @@ El proyecto reproduce varios procesos habituales de una empresa: administración
 
 ## Vista de la aplicación
 
-La interfaz utiliza una identidad visual corporativa basada en tonos azules, naranjas y grises. El recurso gráfico incluido en el repositorio sirve como fondo e inspiración visual del proyecto:
+Esta captura ofrece una vista general de EcoHome ERP y muestra el panel de gestión disponible para un usuario administrador. Desde este panel se accede a los módulos principales de pedidos, stock, facturación, informes y trabajadores.
 
-![Identidad visual de EcoHome](img/fondo.png)
+![Vista general del panel de gestión de EcoHome ERP](img/appEPR.png)
+
+Por el momento, esta es la imagen principal de la aplicación incluida en el README. La galería se ampliará en futuras versiones con capturas específicas de cada módulo y de sus flujos de trabajo.
 
 El funcionamiento completo de la aplicación puede verse en el siguiente vídeo:
 
 [Ver demostración de EcoHome ERP en YouTube](https://youtu.be/LtaSYJ0hnrg)
 
-La aplicación se organiza alrededor de un panel principal que adapta sus accesos al rol del usuario conectado. Desde él se navega hacia pedidos, stock, facturación, informes o administración de trabajadores.
+Las tarjetas visibles se adaptan al rol del usuario conectado, por lo que cada perfil encuentra únicamente los accesos relacionados con sus responsabilidades.
 
 ## Objetivos
 
