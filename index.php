@@ -10,6 +10,7 @@ if (!empty($_SESSION['user'])) {
 
 $error = $_GET['error'] ?? '';
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
